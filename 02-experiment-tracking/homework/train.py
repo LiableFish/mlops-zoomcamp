@@ -2,6 +2,7 @@ import argparse
 import os
 import pickle
 
+import mlflow.sklearn
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
@@ -12,7 +13,6 @@ def load_pickle(filename: str):
 
 
 def run(data_path):
-
     X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
     X_valid, y_valid = load_pickle(os.path.join(data_path, "valid.pkl"))
 
@@ -32,5 +32,7 @@ if __name__ == '__main__':
         help="the location where the processed NYC taxi trip data was saved."
     )
     args = parser.parse_args()
+
+    mlflow.sklearn.autolog()
 
     run(args.data_path)
