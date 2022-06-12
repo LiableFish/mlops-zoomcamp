@@ -15,6 +15,7 @@ pyarrow = "^8.0.0"
 mlflow = "^1.26.1"
 hyperopt = "^0.2.7"
 xgboost = "^1.6.1"
+prefect = "2.0b5"
 
 [tool.poetry.dev-dependencies]
 
